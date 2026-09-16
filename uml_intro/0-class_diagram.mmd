@@ -1,0 +1,54 @@
+classDiagram
+    direction TB
+
+    class BaseGeometry {
+        +integer_validator(name: str, value: int) void
+        +area() int
+    }
+
+    class Rectangle {
+        -width: int
+        -height: int
+        +__init__(width: int, height: int)
+        +area() int
+        +__str__() str
+    }
+
+    class Square {
+        -size: int
+        +__init__(size: int)
+        +__str__() str
+    }
+
+    class Shape {
+        <<abstract>>
+        +area() float
+        +perimeter() float
+    }
+
+    class Circle {
+        -radius: float
+        +__init__(radius: float)
+        +area() float
+        +perimeter() float
+    }
+
+    class Animal {
+        <<abstract>>
+        +sound() str
+    }
+
+    class Dog {
+        +sound() str
+    }
+
+    class Cat {
+        +sound() str
+    }
+
+    BaseGeometry <|-- Rectangle : inherits
+    Rectangle <|-- Square : inherits
+    Shape <|-- Circle : inherits
+    Animal <|-- Dog : inherits
+    Animal <|-- Cat : inherits
+    
